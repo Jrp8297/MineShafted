@@ -23,22 +23,27 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         position = gameObject.transform.position;
-        velocity = new Vector3(Input.acceleration.x*Time.deltaTime, 0, Input.acceleration.z* Time.deltaTime);
+        if (SystemInfo.supportsGyroscope)
+        {
+            velocity = new Vector3(Input.gyro.attitude.x * Time.deltaTime, 0, Input.gyro.attitude.z * Time.deltaTime);
+        }
         if(Input.GetKey("left"))
         {
-            velocity.x += .05f * Time.deltaTime;
+            velocity.x = .05f;
         }
         else if (Input.GetKey("right"))
         {
-            velocity.x -= .05f * Time.deltaTime;
+            velocity.x = -.05f;
         }
 
         position += velocity;
+        gameObject.transform.position = position;
 
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
         pos.x = Mathf.Clamp01(pos.x);
         pos.y = Mathf.Clamp01(pos.y);
         transform.position = Camera.main.ViewportToWorldPoint(pos);
+        
     }
 
     void StoreData()
