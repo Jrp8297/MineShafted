@@ -31,19 +31,23 @@ public class PlayerScript : MonoBehaviour {
 
         if(Input.GetKey("left"))
         {
-            velocity.x = .05f;
+            velocity.x = -.2f;
         }
-        else if (Input.GetKey("right"))
+        if (Input.GetKey("right"))
         {
-            velocity.x = -.05f;
+            velocity.x = .2f;
+        }
+        if(Input.GetKey("right") && Input.GetKey("left"))
+        {
+            velocity.x = 0;
         }
 
         position += velocity;
         gameObject.transform.position = position;
 
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        pos.x = Mathf.Clamp01(pos.x);
-        pos.y = Mathf.Clamp01(pos.y);
+        pos.x = Mathf.Clamp(pos.x,0.1f,0.9f);
+        pos.y = Mathf.Clamp(pos.y, 0.1f, 0.9f);
         transform.position = Camera.main.ViewportToWorldPoint(pos);
         
     }
