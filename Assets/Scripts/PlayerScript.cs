@@ -27,6 +27,8 @@ public class PlayerScript : MonoBehaviour {
         {
             velocity = new Vector3(Input.gyro.attitude.x * Time.deltaTime, 0, Input.gyro.attitude.z * Time.deltaTime);
         }
+
+
         if(Input.GetKey("left"))
         {
             velocity.x = .05f;
@@ -45,7 +47,6 @@ public class PlayerScript : MonoBehaviour {
         transform.position = Camera.main.ViewportToWorldPoint(pos);
         
     }
-
     void StoreData()
     {
         PlayerPrefs.SetInt("Health", health);
@@ -56,7 +57,6 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.SetInt("WeaponTier", weaponTier);
         PlayerPrefs.Save();
     }
-
     void GetData()
     {
         PlayerPrefs.GetInt("Health", health);
@@ -66,7 +66,6 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.GetInt("WeaponType", weaponStyle);
         PlayerPrefs.GetInt("WeaponTier", weaponTier);
     }
-
     void ResetData()
     {
         PlayerPrefs.SetInt("Health", 10);
@@ -77,4 +76,7 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.SetInt("WeaponTier", 0);
         PlayerPrefs.Save();
     }
+    
+
+
 }
