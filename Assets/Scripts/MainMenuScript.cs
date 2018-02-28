@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class UpgradeScript : MonoBehaviour {
+public class MainMenuScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,12 +13,12 @@ public class UpgradeScript : MonoBehaviour {
 	void Update () {
 		
 	}
-    public void BackToMain()
-    {
-        SceneManager.LoadScene("MainMenu");   
-    }
-    public void BackToShaft()
+    public void StartGame()
     {
         SceneManager.LoadScene("ShaftScene");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
