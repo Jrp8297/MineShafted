@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShaftObject : MonoBehaviour {
     public bool isOre;
@@ -18,7 +19,7 @@ public class ShaftObject : MonoBehaviour {
         Debug.Log("Trigger Entered");
         if (!isOre)
         {
-            manager.SwitchToFight();
+            SceneManager.LoadScene("FightScene");
         }
         else
         {
