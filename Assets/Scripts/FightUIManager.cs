@@ -28,6 +28,6 @@ public class FightUIManager : MonoBehaviour {
     public void Victory()
     {
         SceneManager.LoadScene("ShaftScene");
-        player.bones += 2;
+        player.bones += 2; //please go and correctly define what this is supposed to be
     }
 }
