@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
     public int health;
-    public int tempCurrency;
+    public int [] tempCurrency;
+    public int [] bankedCurrency;
     public int armorStyle;
     public int armorTier;
     public int weaponStyle;
     public int weaponTier;
     public bool isActive;
+    public float depth;
     Vector3 position;
     Vector3 velocity;
 
@@ -17,6 +19,8 @@ public class PlayerScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        tempCurrency = new int[10];
+        bankedCurrency = new int[10];
 		
 	}
 	
@@ -27,21 +31,22 @@ public class PlayerScript : MonoBehaviour {
         {
             velocity = new Vector3(Input.gyro.attitude.x * Time.deltaTime, 0, Input.gyro.attitude.z * Time.deltaTime);
         }
-
-
-        if(Input.GetKey("left"))
+        else
         {
-            velocity.x = -.2f;
-        }
-        if (Input.GetKey("right"))
-        {
-            velocity.x = .2f;
-        }
-        if(Input.GetKey("right") && Input.GetKey("left"))
-        {
-            velocity.x = 0;
-        }
 
+            if (Input.GetKey("left"))
+            {
+                velocity.x = -.2f;
+            }
+            if (Input.GetKey("right"))
+            {
+                velocity.x = .2f;
+            }
+            if (Input.GetKey("right") && Input.GetKey("left"))
+            {
+                velocity.x = 0;
+            }
+        }
         position += velocity;
         gameObject.transform.position = position;
 
@@ -54,7 +59,14 @@ public class PlayerScript : MonoBehaviour {
     void StoreData()
     {
         PlayerPrefs.SetInt("Health", health);
-        PlayerPrefs.SetInt("Copper", tempCurrency);
+        for (int i = 0; i <= 9; i++)
+        {
+            PlayerPrefs.SetInt("Currency" +i, tempCurrency[i]);
+        }
+        for (int i = 0; i <= 9; i++)
+        {
+            PlayerPrefs.SetInt("Currency" + i, bankedCurrency[i]);
+        }
         PlayerPrefs.SetInt("ArmourType", armorStyle);
         PlayerPrefs.SetInt("ArmourTier", armorTier);
         PlayerPrefs.SetInt("WeaponType", weaponStyle);
@@ -64,7 +76,14 @@ public class PlayerScript : MonoBehaviour {
     void GetData()
     {
         PlayerPrefs.GetInt("Health", health);
-        PlayerPrefs.GetInt("Copper", tempCurrency);
+        for (int i = 0; i <= 9; i++)
+        {
+            PlayerPrefs.GetInt("Currency" + i, tempCurrency[i]);
+        }
+        for (int i = 0; i <= 9; i++)
+        {
+            PlayerPrefs.GetInt("Currency" + i, bankedCurrency[i]);
+        }
         PlayerPrefs.GetInt("ArmourType", armorStyle);
         PlayerPrefs.GetInt("ArmourTier", armorTier);
         PlayerPrefs.GetInt("WeaponType", weaponStyle);
@@ -81,6 +100,15 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.Save();
     }
     
+    void Bank()
+    {
+        for (int i = 0; i <= 9; i++)
+        {
+            bankedCurrency[i] += tempCurrency[i];
+            tempCurrency[i] = 0;
+        }
+        StoreData();
+    }
 
 
 }

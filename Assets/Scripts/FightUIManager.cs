@@ -6,6 +6,7 @@ public class FightUIManager : MonoBehaviour {
     public Canvas defeatPanel;
     public Canvas victoryPanel;
     bool afterFight = false;
+    public PlayerScript player;
 	// Use this for initialization
 	void Start ()
     {
@@ -21,9 +22,12 @@ public class FightUIManager : MonoBehaviour {
     public void Defeat()
     {
         SceneManager.LoadScene("UpgradeScene");
+        
+        
     }
     public void Victory()
     {
         SceneManager.LoadScene("ShaftScene");
+        player.bones += 2;
     }
 }
