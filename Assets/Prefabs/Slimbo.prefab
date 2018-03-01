@@ -9,45 +9,45 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1036472895006308}
+  m_RootGameObject: {fileID: 1606363614017934}
   m_IsPrefabParent: 1
---- !u!1 &1036472895006308
+--- !u!1 &1606363614017934
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4800670944367924}
-  - component: {fileID: 212777899183941936}
-  - component: {fileID: 114789455088251986}
-  - component: {fileID: 61879972996986094}
+  - component: {fileID: 4839664497956722}
+  - component: {fileID: 212480833287564288}
+  - component: {fileID: 61737933960141718}
+  - component: {fileID: 114724417437914158}
   m_Layer: 0
-  m_Name: Ore
+  m_Name: Slimbo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4800670944367924
+--- !u!4 &4839664497956722
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1036472895006308}
+  m_GameObject: {fileID: 1606363614017934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.1, y: -3.14, z: 20.584589}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: -2.07, y: -3.45, z: 20.578712}
+  m_LocalScale: {x: 0.3526032, y: 0.35260344, z: 0.35260344}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61879972996986094
+--- !u!61 &61737933960141718
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1036472895006308}
+  m_GameObject: {fileID: 1606363614017934}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -58,35 +58,35 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 5.5, y: 4.32}
+    newSize: {x: 5.69, y: 5.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 5.5, y: 4.32}
   m_EdgeRadius: 0
---- !u!114 &114789455088251986
+--- !u!114 &114724417437914158
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1036472895006308}
+  m_GameObject: {fileID: 1606363614017934}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab9b042340ea0f04c8559cb305d9377c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOre: 1
+  isOre: 0
   manager: {fileID: 0}
   player: {fileID: 0}
---- !u!212 &212777899183941936
+--- !u!212 &212480833287564288
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1036472895006308}
+  m_GameObject: {fileID: 1606363614017934}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -113,11 +113,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: da608afab4842fd4c8b32e452d2c98df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c15d9e044d504e14d979718f96f1a8ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 5.69, y: 5.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
