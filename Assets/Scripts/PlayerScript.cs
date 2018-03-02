@@ -10,7 +10,11 @@ public class PlayerScript : MonoBehaviour {
     public int armorTier;
     public int weaponStyle;
     public int weaponTier;
+    public int pickTier;
+    public int spearTier;
     public bool isActive;
+    public bool TickDebug;
+    public bool DoReset;
     public float depth;
     Vector3 position;
     Vector3 velocity;
@@ -27,6 +31,16 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         position = gameObject.transform.position;
+        if (TickDebug)
+        {
+            TickDebug = false;
+            DebugData();
+        }
+        if (DoReset)
+        {
+            DoReset = false;
+            ResetData();
+        }
         if (SystemInfo.supportsGyroscope)
         {
             velocity = new Vector3(Input.gyro.attitude.x * Time.deltaTime, 0, Input.gyro.attitude.z * Time.deltaTime);
@@ -61,16 +75,18 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.SetInt("Health", health);
         for (int i = 0; i <= 9; i++)
         {
-            PlayerPrefs.SetInt("Currency" +i, tempCurrency[i]);
+            PlayerPrefs.SetInt("TempCurrency" +i, tempCurrency[i]);
         }
         for (int i = 0; i <= 9; i++)
         {
-            PlayerPrefs.SetInt("Currency" + i, bankedCurrency[i]);
+            PlayerPrefs.SetInt("BankedCurrency" + i, bankedCurrency[i]);
         }
         PlayerPrefs.SetInt("ArmourType", armorStyle);
         PlayerPrefs.SetInt("ArmourTier", armorTier);
         PlayerPrefs.SetInt("WeaponType", weaponStyle);
         PlayerPrefs.SetInt("WeaponTier", weaponTier);
+        PlayerPrefs.SetInt("PickTier", pickTier);
+        PlayerPrefs.SetInt("SpearTier", spearTier);
         PlayerPrefs.Save();
     }
     void GetData()
@@ -78,25 +94,35 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.GetInt("Health", health);
         for (int i = 0; i <= 9; i++)
         {
-            PlayerPrefs.GetInt("Currency" + i, tempCurrency[i]);
+            PlayerPrefs.GetInt("TempCurrency" + i, tempCurrency[i]);
         }
         for (int i = 0; i <= 9; i++)
         {
-            PlayerPrefs.GetInt("Currency" + i, bankedCurrency[i]);
+            PlayerPrefs.GetInt("BankedCurrency" + i, bankedCurrency[i]);
         }
         PlayerPrefs.GetInt("ArmourType", armorStyle);
         PlayerPrefs.GetInt("ArmourTier", armorTier);
         PlayerPrefs.GetInt("WeaponType", weaponStyle);
         PlayerPrefs.GetInt("WeaponTier", weaponTier);
+        PlayerPrefs.GetInt("PickTier", pickTier);
+        PlayerPrefs.GetInt("SpearTier", spearTier);
     }
     void ResetData()
     {
         PlayerPrefs.SetInt("Health", 10);
-        PlayerPrefs.SetInt("Copper", 0);
+        for (int i = 0; i <= 9; i++)
+        {
+            PlayerPrefs.SetInt("TempCurrency" + i, 0);
+        }
+        for (int i = 0; i <= 9; i++)
+        {
+            PlayerPrefs.SetInt("BankedCurrency" + i, 0);
+        }
         PlayerPrefs.SetInt("ArmourType", 0);
         PlayerPrefs.SetInt("ArmourTier", 0);
         PlayerPrefs.SetInt("WeaponType", 0);
         PlayerPrefs.SetInt("WeaponTier", 0);
+
         PlayerPrefs.Save();
     }
     
@@ -109,6 +135,28 @@ public class PlayerScript : MonoBehaviour {
         }
         StoreData();
     }
-
+    void DebugData()
+    {
+        PlayerPrefs.GetInt("Health", health);
+        for (int i = 0; i <= 9; i++)
+        {
+            PlayerPrefs.GetInt("TempCurrency" + i, tempCurrency[i]);
+        }
+        for (int i = 0; i <= 9; i++)
+        {
+            PlayerPrefs.GetInt("BankedCurrency" + i, bankedCurrency[i]);
+        }
+        PlayerPrefs.GetInt("ArmourType", armorStyle);
+        PlayerPrefs.GetInt("ArmourTier", armorTier);
+        PlayerPrefs.GetInt("WeaponType", weaponStyle);
+        PlayerPrefs.GetInt("WeaponTier", weaponTier);
+        PlayerPrefs.GetInt("PickTier", pickTier);
+        PlayerPrefs.GetInt("SpearTier", spearTier);
+        Debug.Log("health =" + health);
+        for (int i = 0; i <= 9; i++)
+        {
+            Debug.Log("temp currency " + i + " = " + tempCurrency[i]);
+        }
+    }
 
 }
