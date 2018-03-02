@@ -18,7 +18,6 @@ public class PlayerScript : MonoBehaviour {
     public float depth;
     Vector3 position;
     Vector3 velocity;
-    public int bones; // added because there was a compiler error from FightUIManager
 
 
 

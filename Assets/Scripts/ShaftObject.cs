@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ShaftObject : MonoBehaviour {
     public bool isOre;
-    int tier =1;
+    public int tier =1;
     public GameManager manager;
     public PlayerScript player;
 
@@ -31,8 +31,12 @@ public class ShaftObject : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         Vector3 newPos = gameObject.transform.position;
-        newPos.y += 1 * Time.deltaTime;
+        newPos.y += 3 * Time.deltaTime;
         gameObject.transform.position = newPos;
+        if(Camera.main.WorldToViewportPoint( gameObject.transform.position).y > 1)
+        {
+            Destroy(gameObject);
+        }
 
     }
 }

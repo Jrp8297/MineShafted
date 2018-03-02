@@ -51,7 +51,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -79,8 +79,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOre: 1
+  tier: 1
   manager: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 114922722353522786, guid: 6ce0edcf481c5204ca1c65a95f8aef6d, type: 2}
 --- !u!212 &212777899183941936
 SpriteRenderer:
   m_ObjectHideFlags: 1
