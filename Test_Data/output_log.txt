@@ -1,0 +1,147 @@
+Initialize engine version: 5.6.0f3 (497a0f351392)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 (ID=0x1c60)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   23.21.13.8792
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Repos\MineShafted\Test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Repos\MineShafted\Test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Repos\MineShafted\Test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Repos\MineShafted\Test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Repos\MineShafted\Test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Repos\MineShafted\Test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Repos\MineShafted\Test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Repos\MineShafted\Test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.124 seconds
+Platform assembly: D:\Repos\MineShafted\Test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Repos\MineShafted\Test_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 75Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.552198 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+NullReferenceException: Object reference not set to an instance of an object
+  at FightUIManager.Victory () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent.Invoke () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.Press () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+UnloadTime: 5.493730 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 268.
+Total: 0.201876 ms (FindLiveObjects: 0.022518 ms CreateObjectMapping: 0.019753 ms MarkObjects: 0.141037 ms  DeleteObjects: 0.017382 ms)
+
+Trigger Entered
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.623012 ms
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 311.
+Total: 0.601679 ms (FindLiveObjects: 0.047407 ms CreateObjectMapping: 0.043851 ms MarkObjects: 0.444444 ms  DeleteObjects: 0.064395 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.326716 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 289.
+Total: 0.247703 ms (FindLiveObjects: 0.026074 ms CreateObjectMapping: 0.016592 ms MarkObjects: 0.199506 ms  DeleteObjects: 0.004345 ms)
+
+Scene 'MainMenu' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 137)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.392296 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 268.
+Total: 0.134716 ms (FindLiveObjects: 0.012246 ms CreateObjectMapping: 0.011851 ms MarkObjects: 0.098370 ms  DeleteObjects: 0.011851 ms)
+
+Trigger Entered
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.568494 ms
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 311.
+Total: 0.535703 ms (FindLiveObjects: 0.039901 ms CreateObjectMapping: 0.039111 ms MarkObjects: 0.398222 ms  DeleteObjects: 0.057679 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at FightUIManager.Victory () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent.Invoke () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.Press () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.278123 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 268.
+Total: 0.147753 ms (FindLiveObjects: 0.016592 ms CreateObjectMapping: 0.012641 ms MarkObjects: 0.103901 ms  DeleteObjects: 0.013432 ms)
+
+Trigger Entered
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.712296 ms
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 311.
+Total: 0.594568 ms (FindLiveObjects: 0.047802 ms CreateObjectMapping: 0.042666 ms MarkObjects: 0.436148 ms  DeleteObjects: 0.065580 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.312889 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 289.
+Total: 0.182518 ms (FindLiveObjects: 0.016987 ms CreateObjectMapping: 0.012246 ms MarkObjects: 0.149333 ms  DeleteObjects: 0.003160 ms)
+
+Scene 'MainMenu' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 137)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.535703 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 268.
+Total: 0.201481 ms (FindLiveObjects: 0.054123 ms CreateObjectMapping: 0.014617 ms MarkObjects: 0.118913 ms  DeleteObjects: 0.013432 ms)
+
