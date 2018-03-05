@@ -52,6 +52,22 @@ public class UpgradeObject : MonoBehaviour {
                     Debug.Log("INSUFFICENT FUNDS");
                 }
                 break;
+            case 3://PICK                
+                if (PlayerPrefs.GetInt("BankedCurrency" + (PlayerPrefs.GetInt("PickTier"))) >= 10)
+                {
+                    int store = PlayerPrefs.GetInt("BankedCurrency" + (PlayerPrefs.GetInt("PickTier")));
+                    store -= 10;
+                    PlayerPrefs.SetInt("BankedCurrency" + (PlayerPrefs.GetInt("PickTier")), store);
+                    Debug.Log("Pick upgrade Called");
+                    PlayerPrefs.SetInt("PickTier", PlayerPrefs.GetInt("PickTier"));
+                    PlayerPrefs.Save();
+                    UpdateIcon();
+                }
+                else
+                {
+                    Debug.Log("INSUFFICENT FUNDS");
+                }
+                break;
             default:
                 break;
         }
@@ -71,6 +87,9 @@ public class UpgradeObject : MonoBehaviour {
                 break;
             case 2:
                 myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("ArmourTier")];
+                break;
+            case 3:
+                myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("PickTier")];
                 break;
             default:
                 break;
