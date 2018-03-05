@@ -25,6 +25,8 @@ public class PlayerScript : MonoBehaviour {
     void Start () {
         tempCurrency = new int[10];
         bankedCurrency = new int[10];
+        GetData();
+
 		
 	}
 	
@@ -33,6 +35,7 @@ public class PlayerScript : MonoBehaviour {
         position = gameObject.transform.position;
         if (TickDebug)
         {
+            Bank();
             TickDebug = false;
             DebugData();
         }
@@ -70,8 +73,8 @@ public class PlayerScript : MonoBehaviour {
         transform.position = Camera.main.ViewportToWorldPoint(pos);
         
     }
-    void StoreData()
-    {
+    public void StoreData()    {
+       
         PlayerPrefs.SetInt("Health", health);
         for (int i = 0; i <= 9; i++)
         {
@@ -94,29 +97,29 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.GetInt("Health", health);
         for (int i = 0; i <= 9; i++)
         {
-            PlayerPrefs.GetInt("TempCurrency" + i, tempCurrency[i]);
+            tempCurrency[i] =PlayerPrefs.GetInt("TempCurrency" + i);
         }
         for (int i = 0; i <= 9; i++)
         {
-            PlayerPrefs.GetInt("BankedCurrency" + i, bankedCurrency[i]);
+            bankedCurrency[i]= PlayerPrefs.GetInt("BankedCurrency" + i.ToString());
         }
-        PlayerPrefs.GetInt("ArmourType", armorStyle);
-        PlayerPrefs.GetInt("ArmourTier", armorTier);
-        PlayerPrefs.GetInt("WeaponType", weaponStyle);
-        PlayerPrefs.GetInt("WeaponTier", weaponTier);
-        PlayerPrefs.GetInt("PickTier", pickTier);
-        PlayerPrefs.GetInt("SpearTier", spearTier);
+        armorStyle= PlayerPrefs.GetInt("ArmourType");
+        armorTier=PlayerPrefs.GetInt("ArmourTier");
+        weaponStyle =PlayerPrefs.GetInt("WeaponType");
+        weaponTier=PlayerPrefs.GetInt("WeaponTier");
+        pickTier=PlayerPrefs.GetInt("PickTier");
+        spearTier=PlayerPrefs.GetInt("SpearTier");
     }
     void ResetData()
     {
         PlayerPrefs.SetInt("Health", 10);
         for (int i = 0; i <= 9; i++)
         {
-            PlayerPrefs.SetInt("TempCurrency" + i, 0);
+            PlayerPrefs.SetInt("TempCurrency" + i.ToString(), 0);
         }
         for (int i = 0; i <= 9; i++)
         {
-            PlayerPrefs.SetInt("BankedCurrency" + i, 0);
+            PlayerPrefs.SetInt("BankedCurrency" + i.ToString(), 0);
         }
         PlayerPrefs.SetInt("ArmourType", 0);
         PlayerPrefs.SetInt("ArmourTier", 0);
@@ -126,8 +129,9 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.Save();
     }
     
-    void Bank()
+    public void Bank()
     {
+       
         for (int i = 0; i <= 9; i++)
         {
             bankedCurrency[i] += tempCurrency[i];
@@ -137,21 +141,7 @@ public class PlayerScript : MonoBehaviour {
     }
     void DebugData()
     {
-        PlayerPrefs.GetInt("Health", health);
-        for (int i = 0; i <= 9; i++)
-        {
-            PlayerPrefs.GetInt("TempCurrency" + i, tempCurrency[i]);
-        }
-        for (int i = 0; i <= 9; i++)
-        {
-            PlayerPrefs.GetInt("BankedCurrency" + i, bankedCurrency[i]);
-        }
-        PlayerPrefs.GetInt("ArmourType", armorStyle);
-        PlayerPrefs.GetInt("ArmourTier", armorTier);
-        PlayerPrefs.GetInt("WeaponType", weaponStyle);
-        PlayerPrefs.GetInt("WeaponTier", weaponTier);
-        PlayerPrefs.GetInt("PickTier", pickTier);
-        PlayerPrefs.GetInt("SpearTier", spearTier);
+        GetData();
         Debug.Log("health =" + health);
         for (int i = 0; i <= 9; i++)
         {

@@ -19,7 +19,10 @@ public class ShaftObject : MonoBehaviour {
         Debug.Log("Trigger Entered");
         if (!isOre)
         {
-            SceneManager.LoadScene("FightScene");
+            
+            player.Bank();
+            player.StoreData();
+            SceneManager.LoadScene("FightScene");           
         }
         else
         {
