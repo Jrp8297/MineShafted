@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ShaftObject : MonoBehaviour {
+public class ShaftObject : MonoBehaviour
+{
     public bool isOre;
-    public int tier =1;
+    public int tier = 1;
     public GameManager manager;
     public PlayerScript player;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Trigger Entered");
         if (!isOre)
         {
-            
+
             player.Bank();
             player.StoreData();
-            SceneManager.LoadScene("FightScene");           
+            SceneManager.LoadScene("FightScene");
         }
         else
         {
@@ -32,11 +34,12 @@ public class ShaftObject : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         Vector3 newPos = gameObject.transform.position;
         newPos.y += 3 * Time.deltaTime;
         gameObject.transform.position = newPos;
-        if(Camera.main.WorldToViewportPoint( gameObject.transform.position).y > 1)
+        if (Camera.main.WorldToViewportPoint(gameObject.transform.position).y > 1)
         {
             Destroy(gameObject);
         }

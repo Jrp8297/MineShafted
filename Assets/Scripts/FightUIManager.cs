@@ -11,7 +11,7 @@ public class FightUIManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        inFight = gameObject.GetComponent<ShaftObject>().inFight;
+        
 	}
 	
 	// Update is called once per frame
