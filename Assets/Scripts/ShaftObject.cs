@@ -24,7 +24,8 @@ public class ShaftObject : MonoBehaviour
 
             player.Bank();
             player.StoreData();
-            SceneManager.LoadScene("FightScene");
+            gameObject.SetActive(false);
+            player.inFight = true;
         }
         else
         {
@@ -36,12 +37,14 @@ public class ShaftObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPos = gameObject.transform.position;
-        newPos.y += 3 * Time.deltaTime;
-        gameObject.transform.position = newPos;
-        if (Camera.main.WorldToViewportPoint(gameObject.transform.position).y > 1)
-        {
-            Destroy(gameObject);
+        if (!player.inFight) { 
+            Vector3 newPos = gameObject.transform.position;
+            newPos.y += 3 * Time.deltaTime;
+            gameObject.transform.position = newPos;
+            if (Camera.main.WorldToViewportPoint(gameObject.transform.position).y > 1)
+            {
+                Destroy(gameObject);
+            }
         }
 
     }

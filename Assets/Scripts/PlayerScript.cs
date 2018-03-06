@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour {
     public int weaponTier;
     public int pickTier;
     public int spearTier;
-    public bool isActive;
+    public bool inFight;
     public bool TickDebug;
     public bool DoReset;
     public float depth;
@@ -26,8 +26,6 @@ public class PlayerScript : MonoBehaviour {
         tempCurrency = new int[10];
         bankedCurrency = new int[10];
         GetData();
-
-		
 	}
 	
 	// Update is called once per frame
@@ -44,34 +42,35 @@ public class PlayerScript : MonoBehaviour {
             DoReset = false;
             ResetData();
         }
-        if (SystemInfo.supportsGyroscope)
+        if (!inFight)
         {
-            velocity = new Vector3(Input.gyro.attitude.x * Time.deltaTime, 0, Input.gyro.attitude.z * Time.deltaTime);
-        }
-        else
-        {
+            if (SystemInfo.supportsGyroscope)
+            {
+                velocity = new Vector3(Input.gyro.attitude.x * Time.deltaTime, 0, Input.gyro.attitude.z * Time.deltaTime);
+            }
+            else
+            {
+                if (Input.GetKey("left"))
+                {
+                    velocity.x = -.2f;
+                }
+                if (Input.GetKey("right"))
+                {
+                    velocity.x = .2f;
+                }
+                if (Input.GetKey("right") && Input.GetKey("left"))
+                {
+                    velocity.x = 0;
+                }
+            }
+            position += velocity;
+            gameObject.transform.position = position;
 
-            if (Input.GetKey("left"))
-            {
-                velocity.x = -.2f;
-            }
-            if (Input.GetKey("right"))
-            {
-                velocity.x = .2f;
-            }
-            if (Input.GetKey("right") && Input.GetKey("left"))
-            {
-                velocity.x = 0;
-            }
+            Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+            pos.x = Mathf.Clamp(pos.x, 0.1f, 0.9f);
+            pos.y = Mathf.Clamp(pos.y, 0.1f, 0.9f);
+            transform.position = Camera.main.ViewportToWorldPoint(pos);
         }
-        position += velocity;
-        gameObject.transform.position = position;
-
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        pos.x = Mathf.Clamp(pos.x,0.1f,0.9f);
-        pos.y = Mathf.Clamp(pos.y, 0.1f, 0.9f);
-        transform.position = Camera.main.ViewportToWorldPoint(pos);
-        
     }
     public void StoreData()    {
        

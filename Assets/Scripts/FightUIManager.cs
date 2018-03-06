@@ -6,18 +6,19 @@ public class FightUIManager : MonoBehaviour {
     public Canvas defeatPanel;
     public Canvas victoryPanel;
     public Canvas fightScene;
-    bool afterFight = false;
-    public bool inFight = false;
+    bool afterFight = false;    
+    PlayerScript myPlayerScript;
+    public GameObject myPlayer;
 	// Use this for initialization
 	void Start ()
     {
-        
+        myPlayerScript = myPlayer.GetComponent<PlayerScript>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if(inFight)
+        if(myPlayerScript.inFight)
         {
             fightScene.enabled = true;
         }
@@ -25,7 +26,7 @@ public class FightUIManager : MonoBehaviour {
 
     public void Defeat()
     {
-        inFight = false;
+        myPlayerScript.inFight = false;
         fightScene.enabled = false;
         SceneManager.LoadScene("UpgradeScene");
        
@@ -35,13 +36,11 @@ public class FightUIManager : MonoBehaviour {
     public void Victory()
     {
         fightScene.enabled = false;
-        inFight = false;
+        myPlayerScript.inFight = false;
+
         
         
     }
-    public void InFight()
-    {
-        inFight = true;
-    }
+   
 
 }
