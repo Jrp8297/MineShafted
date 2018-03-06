@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4800670944367924}
   - component: {fileID: 212777899183941936}
-  - component: {fileID: 114789455088251986}
   - component: {fileID: 61879972996986094}
+  - component: {fileID: 114343782603164638}
   m_Layer: 0
   m_Name: Ore
   m_TagString: Untagged
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
---- !u!114 &114789455088251986
+--- !u!114 &114343782603164638
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,13 +75,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1036472895006308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab9b042340ea0f04c8559cb305d9377c, type: 3}
+  m_Script: {fileID: 11500000, guid: 421e5b5d0638f0b4ba937b067996575f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isOre: 1
   tier: 1
   manager: {fileID: 0}
-  player: {fileID: 114922722353522786, guid: 6ce0edcf481c5204ca1c65a95f8aef6d, type: 2}
+  player: {fileID: 0}
 --- !u!212 &212777899183941936
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -91,6 +91,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -106,6 +107,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -122,3 +124,5 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0

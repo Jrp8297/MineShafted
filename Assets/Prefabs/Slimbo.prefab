@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4839664497956722}
   - component: {fileID: 212480833287564288}
   - component: {fileID: 61737933960141718}
-  - component: {fileID: 114724417437914158}
+  - component: {fileID: 114998416000929062}
   m_Layer: 0
   m_Name: Slimbo
   m_TagString: Untagged
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.5, y: 4.32}
   m_EdgeRadius: 0
---- !u!114 &114724417437914158
+--- !u!114 &114998416000929062
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,10 +75,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1606363614017934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab9b042340ea0f04c8559cb305d9377c, type: 3}
+  m_Script: {fileID: 11500000, guid: 421e5b5d0638f0b4ba937b067996575f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isOre: 0
+  tier: 1
   manager: {fileID: 0}
   player: {fileID: 0}
 --- !u!212 &212480833287564288
@@ -90,6 +91,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -105,6 +107,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -121,3 +124,5 @@ SpriteRenderer:
   m_Size: {x: 5.69, y: 5.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
