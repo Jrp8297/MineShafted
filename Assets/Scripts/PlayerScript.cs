@@ -152,4 +152,15 @@ public class PlayerScript : MonoBehaviour {
       
     }
 
+    public void Alloy()
+    {//For now, this just alloys copper and tin into bronze
+
+        if(bankedCurrency[1] >=9 && bankedCurrency[2] >= 1)
+        {
+            bankedCurrency[1] -= 9;
+            bankedCurrency[2] -= 1;
+            bankedCurrency[3] += 10;
+        }
+        Bank();
+    }
 }
