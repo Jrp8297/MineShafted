@@ -29,7 +29,7 @@ public class ShaftObject : MonoBehaviour
         }
         else
         {
-            player.tempCurrency[tier] += (1);
+            player.tempCurrency[tier] += (1+ 1*player.pickTier);
             Destroy(gameObject);
         }
     }

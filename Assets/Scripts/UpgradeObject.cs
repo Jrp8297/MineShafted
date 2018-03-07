@@ -53,13 +53,29 @@ public class UpgradeObject : MonoBehaviour {
                 }
                 break;
             case 3://PICK                
-                if (PlayerPrefs.GetInt("BankedCurrency" + (PlayerPrefs.GetInt("PickTier"))) >= 10)
+                if (PlayerPrefs.GetInt("BankedCurrency" + (PlayerPrefs.GetInt("PickTier")+1)) >= 10)
                 {
-                    int store = PlayerPrefs.GetInt("BankedCurrency" + (PlayerPrefs.GetInt("PickTier")));
+                    int store = PlayerPrefs.GetInt("BankedCurrency" + (PlayerPrefs.GetInt("PickTier")+1));
                     store -= 10;
-                    PlayerPrefs.SetInt("BankedCurrency" + (PlayerPrefs.GetInt("PickTier")), store);
+                    PlayerPrefs.SetInt("BankedCurrency" + (PlayerPrefs.GetInt("PickTier")+1), store);
                     Debug.Log("Pick upgrade Called");
-                    PlayerPrefs.SetInt("PickTier", PlayerPrefs.GetInt("PickTier"));
+                    PlayerPrefs.SetInt("PickTier", (PlayerPrefs.GetInt("PickTier")+1));
+                    PlayerPrefs.Save();
+                    UpdateIcon();
+                }
+                else
+                {
+                    Debug.Log("INSUFFICENT FUNDS");
+                }
+                break;
+            case 4://BOOTS              
+                if (PlayerPrefs.GetInt("BankedCurrency" + (PlayerPrefs.GetInt("BootTier") + 1)) >= 10)
+                {
+                    int store = PlayerPrefs.GetInt("BankedCurrency" + (PlayerPrefs.GetInt("BootTier") + 1));
+                    store -= 10;
+                    PlayerPrefs.SetInt("BankedCurrency" + (PlayerPrefs.GetInt("BootTier") + 1), store);
+                    Debug.Log("Boot upgrade Called");
+                    PlayerPrefs.SetInt("BootTier", (PlayerPrefs.GetInt("BootTier") + 1));
                     PlayerPrefs.Save();
                     UpdateIcon();
                 }
@@ -90,6 +106,9 @@ public class UpgradeObject : MonoBehaviour {
                 break;
             case 3:
                 myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("PickTier")];
+                break;
+            case 4:
+                myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("BootTier")];
                 break;
             default:
                 break;

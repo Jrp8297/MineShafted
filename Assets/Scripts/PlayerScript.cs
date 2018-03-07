@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour {
     public int weaponTier;
     public int pickTier;
     public int spearTier;
+    public int bootTier;
     public bool inFight;
     public bool TickDebug;
     public bool DoReset;
@@ -33,9 +34,10 @@ public class PlayerScript : MonoBehaviour {
         position = gameObject.transform.position;
         if (TickDebug)
         {
-            Bank();
+            
             TickDebug = false;
             DebugData();
+            Bank();
         }
         if (DoReset)
         {
@@ -89,6 +91,7 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.SetInt("WeaponTier", weaponTier);
         PlayerPrefs.SetInt("PickTier", pickTier);
         PlayerPrefs.SetInt("SpearTier", spearTier);
+        PlayerPrefs.SetInt("BootTier", bootTier);
         PlayerPrefs.Save();
     }
     void GetData()
@@ -108,7 +111,8 @@ public class PlayerScript : MonoBehaviour {
         weaponTier=PlayerPrefs.GetInt("WeaponTier");
         pickTier=PlayerPrefs.GetInt("PickTier");
         spearTier=PlayerPrefs.GetInt("SpearTier");
-    }
+        bootTier = PlayerPrefs.GetInt("BootTier");
+           }
     void ResetData()
     {
         PlayerPrefs.SetInt("Health", 10);
@@ -124,6 +128,9 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.SetInt("ArmourTier", 0);
         PlayerPrefs.SetInt("WeaponType", 0);
         PlayerPrefs.SetInt("WeaponTier", 0);
+        PlayerPrefs.SetInt("SpearTier", 0);
+        PlayerPrefs.SetInt("PickTier", 0);
+        PlayerPrefs.SetInt("BootTier", 0);
 
         PlayerPrefs.Save();
     }
@@ -141,11 +148,8 @@ public class PlayerScript : MonoBehaviour {
     void DebugData()
     {
         GetData();
-        Debug.Log("health =" + health);
-        for (int i = 0; i <= 9; i++)
-        {
-            Debug.Log("temp currency " + i + " = " + tempCurrency[i]);
-        }
+        
+      
     }
 
 }
