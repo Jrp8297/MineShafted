@@ -17,6 +17,10 @@ public class MainMenuScript : MonoBehaviour {
     {
         SceneManager.LoadScene("ShaftScene");
     }
+	public void Instructions()
+	{
+		SceneManager.LoadScene("InstructionsScene");
+	}
     public void QuitGame()
     {
         Application.Quit();
