@@ -81,17 +81,17 @@ MonoBehaviour:
   isOre: 0
   tier: 1
   defense:
-  - 3
-  - 2
-  - 0
+  - 1
+  - 1
+  - 1
   - 0.3
   - 0.2
-  - 0
+  - 0.1
   attack:
   - 0
-  - 10
+  - 3
   - 0
-  health: 4
+  health: 3
   manager: {fileID: 0}
   player: {fileID: 0}
 --- !u!212 &212521206514981936

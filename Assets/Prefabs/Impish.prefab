@@ -79,19 +79,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOre: 0
-  tier: 1
+  tier: 2
   defense:
-  - 3
-  - 2
-  - 0
-  - 0.3
-  - 0.2
-  - 0
+  - 1
+  - 1
+  - 1
+  - 0.25
+  - 0.25
+  - 0.1
   attack:
-  - 0
-  - 10
-  - 0
-  health: 4
+  - 3
+  - 12
+  - 1
+  health: 8
   manager: {fileID: 0}
   player: {fileID: 0}
 --- !u!212 &212409525900759944
