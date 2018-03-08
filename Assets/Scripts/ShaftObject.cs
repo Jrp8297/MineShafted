@@ -41,7 +41,7 @@ public class ShaftObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!player.inFight) { 
+        if (!player.inFight) {
             Vector3 newPos = gameObject.transform.position;
             newPos.y += 3 * Time.deltaTime;
             gameObject.transform.position = newPos;

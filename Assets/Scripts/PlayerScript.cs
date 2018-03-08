@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour {
     public int pickTier;
     public int spearTier;
     public int bootTier;
+    public float tempDepth;
     public bool inFight;
     public bool TickDebug;
     public bool DoReset;
@@ -33,6 +34,10 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         position = gameObject.transform.position;
+        tempDepth += Time.deltaTime;
+        Debug.Log(tempDepth);
+        PlayerPrefs.SetFloat("TempDepth", tempDepth);
+
         if (TickDebug)
         {
                   
@@ -92,6 +97,7 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.SetInt("PickTier", pickTier);
         PlayerPrefs.SetInt("SpearTier", spearTier);
         PlayerPrefs.SetInt("BootTier", bootTier);
+        PlayerPrefs.SetFloat("TempDepth", tempDepth);
         PlayerPrefs.Save();
     }
     void GetData()
@@ -112,6 +118,7 @@ public class PlayerScript : MonoBehaviour {
         pickTier=PlayerPrefs.GetInt("PickTier");
         spearTier=PlayerPrefs.GetInt("SpearTier");
         bootTier = PlayerPrefs.GetInt("BootTier");
+        tempDepth = PlayerPrefs.GetInt("TempDepth");
            }
     void ResetData()
     {
@@ -131,6 +138,7 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.SetInt("SpearTier", 0);
         PlayerPrefs.SetInt("PickTier", 0);
         PlayerPrefs.SetInt("BootTier", 0);
+        PlayerPrefs.SetInt("TempDepth", 0);
 
         PlayerPrefs.Save();
     }
