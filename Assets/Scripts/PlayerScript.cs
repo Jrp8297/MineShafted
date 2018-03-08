@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour {
     public bool TickDebug;
     public bool DoReset;
     public float depth;
+    public GameObject currentEnemy;
     Vector3 position;
     Vector3 velocity;
 
@@ -34,10 +35,9 @@ public class PlayerScript : MonoBehaviour {
         position = gameObject.transform.position;
         if (TickDebug)
         {
-            
-            TickDebug = false;
-            DebugData();
+                  
             Bank();
+            TickDebug = false;
         }
         if (DoReset)
         {

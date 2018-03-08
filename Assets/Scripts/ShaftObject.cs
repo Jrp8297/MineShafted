@@ -7,6 +7,9 @@ public class ShaftObject : MonoBehaviour
 {
     public bool isOre;
     public int tier = 1;
+    public float [] defense;
+    public float [] attack;
+    public int health;
     public GameManager manager;
     public PlayerScript player;
 
@@ -21,10 +24,11 @@ public class ShaftObject : MonoBehaviour
         Debug.Log("Trigger Entered");
         if (!isOre)
         {
-
             player.Bank();
             player.StoreData();
-            gameObject.SetActive(false);
+            player.currentEnemy = gameObject;
+            SpriteRenderer MSR = gameObject.GetComponent<SpriteRenderer>();
+            MSR.enabled = false;
             player.inFight = true;
         }
         else

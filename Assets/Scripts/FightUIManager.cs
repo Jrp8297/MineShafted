@@ -21,6 +21,11 @@ public class FightUIManager : MonoBehaviour {
         if(myPlayerScript.inFight)
         {
             fightScene.enabled = true;
+            if(myPlayerScript.health <= 0)
+            {
+                Debug.Log("You died");
+                Defeat();
+            }
         }
 	}
 
@@ -29,17 +34,13 @@ public class FightUIManager : MonoBehaviour {
         myPlayerScript.inFight = false;
         fightScene.enabled = false;
         SceneManager.LoadScene("UpgradeScene");
-       
-
-
     }
     public void Victory()
     {
         fightScene.enabled = false;
+        myPlayerScript.bankedCurrency[0] += 1;
+        myPlayerScript.Bank();
         myPlayerScript.inFight = false;
-
-        
-        
     }
    
 
