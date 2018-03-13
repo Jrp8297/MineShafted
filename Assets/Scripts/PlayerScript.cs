@@ -34,7 +34,7 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         position = gameObject.transform.position;
-        tempDepth += Time.deltaTime;
+      
         //Debug.Log(tempDepth);
         PlayerPrefs.SetFloat("TempDepth", tempDepth);
 
@@ -51,6 +51,7 @@ public class PlayerScript : MonoBehaviour {
         }
         if (!inFight)
         {
+            tempDepth += Time.deltaTime;//move the player "down" the shaft as time passes
             if (SystemInfo.supportsGyroscope)
             {
                 velocity = new Vector3(Input.gyro.attitude.x * Time.deltaTime, 0, Input.gyro.attitude.z * Time.deltaTime);

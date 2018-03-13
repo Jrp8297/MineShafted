@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FightScript : MonoBehaviour {
-    public GameObject PlayerObj;
-    public GameObject UIManagerObject;
-    FightUIManager FUIManager;
+    public GameObject PlayerObj;    
+    public Canvas fightScene;   
     PlayerScript Player;
     ShaftObject Enemy;
     bool hasRead= false;
@@ -22,8 +22,7 @@ public class FightScript : MonoBehaviour {
         enemyAttack = new float[3];
         enemyDefense = new float[6];
         playerAttack = new float[3];
-        playerDefense = new float[6];
-        FUIManager = UIManagerObject.GetComponent<FightUIManager>();
+        playerDefense = new float[6];        
         
     }
 
@@ -45,52 +44,56 @@ public class FightScript : MonoBehaviour {
         playerDefense[4] = (Player.armorStyle * 8) * Player.armorTier/1000;  // Damage Reduction Slash - percentage reduction on remaining damage; (Should max out at ~40%)
         playerDefense[5] = (Player.armorStyle * 4) * Player.armorTier/1000;  // Damage Reduction Slash - percentage reduction on remaining damage; (Should max out at ~20%)
         //Weapon Styles = Knife, Spear, Sword, Mace, WarHammer. Crush steadily increses, Pierce lowers and then rises, Slash steadily drops.
-        playerAttack[0] = ((5 - Player.weaponStyle) * 2 * Player.weaponTier); //Attack Slash
-        playerAttack[1] = (Mathf.Abs(4 - Player.weaponStyle) * 2 * Player.weaponTier); //Attack pierce
-        playerAttack[2] = ((Player.weaponStyle) * Player.weaponStyle * Player.weaponTier); //Attack crush
-
-
-
-
+        playerAttack[0] = ((5 - Player.weaponStyle) * 2 * Player.weaponTier) + 1; //Attack Slash
+        playerAttack[1] = (Mathf.Abs(4 - Player.weaponStyle) * 2 * Player.weaponTier) + 1 ; //Attack pierce
+        playerAttack[2] = ((Player.weaponStyle) * Player.weaponStyle * Player.weaponTier) + 1; //Attack crush
     }
 
     // Update is called once per frame
     void Update () {
         if (Player.inFight)
         {
+            fightScene.enabled = true;
+            if (Player.health <= 0)
+            {
+                Debug.Log("You died");
+                Defeat();
+            }
             if (!hasRead)
             {
+                ReadInPlayerData();
                 ReadInEnemyData();
                 hasRead = true;
             }
-        }
-        if (playerTurn)
-        {
-            //NOTHING
-        }
-        else
-        {//Monster Turn
-            float totalDamage = 0;
-            for (int i = 0; i < 3; i++)
-            {
-                float tempDamage;
-                tempDamage = ((enemyAttack[0 + i] * (1- playerDefense[3 + i])) - playerDefense[0 + i]);
-                if (tempDamage > 0)
-                {
-                    totalDamage += tempDamage;
-                }
-            }
-            Player.health -= (int)totalDamage;
-            playerTurn = true;           
 
-        }
-        if (enemyHealth <= 0)
-        {
-            
-            Destroy(Player.currentEnemy);
-            hasRead = false;
-            FUIManager.Victory();
-            enemyHealth = 1;
+            if (playerTurn)
+            {
+                //NOTHING
+            }
+            else
+            {//Monster Turn
+                float totalDamage = 0;
+                for (int i = 0; i < 3; i++)
+                {
+                    float tempDamage;
+                    tempDamage = ((enemyAttack[0 + i] * (1 - playerDefense[3 + i])) - playerDefense[0 + i]);
+                    if (tempDamage > 0)
+                    {
+                        totalDamage += tempDamage;
+                    }
+                }
+                Player.health -= (int)totalDamage;
+                playerTurn = true;
+
+            }
+            if (enemyHealth <= 0)
+            {
+
+                Destroy(Player.currentEnemy);
+                hasRead = false;
+                Victory();
+                enemyHealth = 1;
+            }
         }
 	}
 
@@ -104,5 +107,19 @@ public class FightScript : MonoBehaviour {
             Enemy.health = enemyHealth;
         }
         playerTurn = false;
+    }
+
+    public void Defeat()
+    {
+        Player.inFight = false;
+        fightScene.enabled = false;
+        SceneManager.LoadScene("UpgradeScene");
+    }
+    public void Victory()
+    {
+        fightScene.enabled = false;
+        Player.bankedCurrency[0] += 1;
+        Player.Bank();
+        Player.inFight = false;
     }
 }
