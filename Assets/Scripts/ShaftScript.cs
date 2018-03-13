@@ -11,9 +11,7 @@ public class ShaftScript : MonoBehaviour {
     public GameObject player;
     int MonsterListSize, OreListSize;
     bool LastOre = false;
-    bool Wall1 = false;
-    bool Wall2 = false;
-    bool Wall3 = false;
+    float nextWall = 10;
     Vector3 spawnPosition;
 
 
@@ -22,6 +20,7 @@ public class ShaftScript : MonoBehaviour {
         MonsterListSize = MonsterPrefabList.Count;
         OreListSize = OrePrefabList.Count;
         spawnPosition = Camera.main.ViewportToWorldPoint( new Vector3(0, 0, 1));
+
 	}
 	
 	// Update is called once per frame
@@ -33,43 +32,27 @@ public class ShaftScript : MonoBehaviour {
                 spawnPosition = Camera.main.WorldToViewportPoint(spawnPosition);
                 spawnPosition.x = Random.Range(0.1f, 0.9f);
                 spawnPosition = Camera.main.ViewportToWorldPoint(spawnPosition);
-                GameObject temp = Instantiate(MonsterPrefabList[Random.Range(0, (Level * 3)-1)], spawnPosition, Quaternion.identity, gameObject.transform);
+                GameObject temp = Instantiate(MonsterPrefabList[Random.Range(0, (Level * 3))], spawnPosition, Quaternion.identity, gameObject.transform);
                 temp.GetComponent<ShaftObject>().player = player.GetComponent<PlayerScript>();
                 LastOre = false;
             }
-            else if (!Wall1 && PlayerPrefs.GetFloat("TempDepth") >= 10.0f)
-            {// if we hit a certain point, spawn a wall
+            else if (nextWall <= PlayerPrefs.GetFloat("TempDepth"))
+            {//If where the next wall should spawn is less than the players position
                 spawnPosition = Camera.main.WorldToViewportPoint(spawnPosition);
                 spawnPosition.x = 0.5f;
                 spawnPosition = Camera.main.ViewportToWorldPoint(spawnPosition);
                 GameObject temp = Instantiate(Wall, spawnPosition, Quaternion.identity, gameObject.transform);
                 temp.GetComponent<ShaftObject>().player = player.GetComponent<PlayerScript>();
-                Wall1 = true;
-            }
-            else if (!Wall2 && PlayerPrefs.GetFloat("TempDepth") >= 30.0f)
-            {// if we hit a certain point, spawn a wall
-                spawnPosition = Camera.main.WorldToViewportPoint(spawnPosition);
-                spawnPosition.x = 0.5f;
-                spawnPosition = Camera.main.ViewportToWorldPoint(spawnPosition);
-                GameObject temp = Instantiate(Wall, spawnPosition, Quaternion.identity, gameObject.transform);
-                temp.GetComponent<ShaftObject>().player = player.GetComponent<PlayerScript>();
-                Wall2 = true;
-            }
-            else if (!Wall3 && PlayerPrefs.GetFloat("TempDepth") >= 60.0f)
-            {// if we hit a certain point, spawn a wall
-                spawnPosition = Camera.main.WorldToViewportPoint(spawnPosition);
-                spawnPosition.x = 0.5f;
-                spawnPosition = Camera.main.ViewportToWorldPoint(spawnPosition);
-                GameObject temp = Instantiate(Wall, spawnPosition, Quaternion.identity, gameObject.transform);
-                temp.GetComponent<ShaftObject>().player = player.GetComponent<PlayerScript>();
-                Wall3 = true;
-            }
+                temp.GetComponent<ShaftObject>().manager = gameObject.GetComponent<ShaftScript>();
+                nextWall += (nextWall + (nextWall / 2));
+                
+            }           
             else
             {//If we spawned a monster Last, Spawn an Ore
                 spawnPosition = Camera.main.WorldToViewportPoint(spawnPosition);
                 spawnPosition.x = Random.Range(0.1f, 0.9f);
                 spawnPosition = Camera.main.ViewportToWorldPoint(spawnPosition);
-                GameObject temp = Instantiate(OrePrefabList[Random.Range(0, (Level * 3 - 1))], spawnPosition, Quaternion.identity, gameObject.transform);
+                GameObject temp = Instantiate(OrePrefabList[Random.Range(0, (Level * 3))], spawnPosition, Quaternion.identity, gameObject.transform);
                 temp.GetComponent<ShaftObject>().player = player.GetComponent<PlayerScript>();
                 LastOre = true;
             }

@@ -35,7 +35,7 @@ public class PlayerScript : MonoBehaviour {
 	void Update () {
         position = gameObject.transform.position;
         tempDepth += Time.deltaTime;
-        Debug.Log(tempDepth);
+        //Debug.Log(tempDepth);
         PlayerPrefs.SetFloat("TempDepth", tempDepth);
 
         if (TickDebug)

@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class ShaftObject : MonoBehaviour
 {
-    public bool isOre;
+    public enum ObjectType { Ore, Enemy, Wall, Trap};
+
+   
     public int tier = 1;
     public float [] defense;
     public float [] attack;
     public int health;
-    public GameManager manager;
+    public ShaftScript manager;
     public PlayerScript player;
+    public ObjectType thisType;
 
     // Use this for initialization
     void Start()
@@ -22,7 +25,7 @@ public class ShaftObject : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Trigger Entered");
-        if (!isOre)
+        if (thisType == ObjectType.Enemy)
         {
             player.Bank();
             player.StoreData();
@@ -31,10 +34,15 @@ public class ShaftObject : MonoBehaviour
             MSR.enabled = false;
             player.inFight = true;
         }
-        else
+        else if(thisType == ObjectType.Ore)
         {
             player.tempCurrency[tier] += (1+ 1*player.pickTier);
             Destroy(gameObject);
+        }
+        else if (thisType == ObjectType.Wall)
+        {
+            Destroy(gameObject);
+            manager.Level++;
         }
     }
 
