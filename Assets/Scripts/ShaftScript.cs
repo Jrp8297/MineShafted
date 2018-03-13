@@ -11,7 +11,7 @@ public class ShaftScript : MonoBehaviour {
     public GameObject player;
     int MonsterListSize, OreListSize;
     bool LastOre = false;
-    float nextWall = 10;
+    float nextWall = 20;
     Vector3 spawnPosition;
 
 

@@ -40,8 +40,8 @@ public class PlayerScript : MonoBehaviour {
 
         if (TickDebug)
         {
-                  
-            Bank();
+
+            GetData();
             TickDebug = false;
         }
         if (DoReset)
@@ -163,11 +163,11 @@ public class PlayerScript : MonoBehaviour {
     public void Alloy()
     {//For now, this just alloys copper and tin into bronze
 
-        if(bankedCurrency[1] >=9 && bankedCurrency[2] >= 1)
+        if(bankedCurrency[1] >=9 && bankedCurrency[9] >= 1)
         {
             bankedCurrency[1] -= 9;
-            bankedCurrency[2] -= 1;
-            bankedCurrency[3] += 10;
+            bankedCurrency[9] -= 1;
+            bankedCurrency[2] += 10;
         }
         Bank();
     }
