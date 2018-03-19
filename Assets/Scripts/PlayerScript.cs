@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour {
     public int pickTier;
     public int spearTier;
     public int bootTier;
+    public int hammerTier;
     public float tempDepth;
     public bool inFight;
     public bool TickDebug;
@@ -97,6 +98,7 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.SetInt("WeaponTier", weaponTier);
         PlayerPrefs.SetInt("PickTier", pickTier);
         PlayerPrefs.SetInt("SpearTier", spearTier);
+        PlayerPrefs.SetInt("HammerTier", hammerTier);
         PlayerPrefs.SetInt("BootTier", bootTier);
         PlayerPrefs.SetFloat("TempDepth", tempDepth);
         PlayerPrefs.Save();
@@ -120,6 +122,7 @@ public class PlayerScript : MonoBehaviour {
         spearTier=PlayerPrefs.GetInt("SpearTier");
         bootTier = PlayerPrefs.GetInt("BootTier");
         tempDepth = PlayerPrefs.GetInt("TempDepth");
+        hammerTier = PlayerPrefs.GetInt("HammerTier");
            }
     void ResetData()
     {
@@ -140,7 +143,7 @@ public class PlayerScript : MonoBehaviour {
         PlayerPrefs.SetInt("PickTier", 0);
         PlayerPrefs.SetInt("BootTier", 0);
         PlayerPrefs.SetInt("TempDepth", 0);
-
+        PlayerPrefs.SetInt("HammerTier", 0);
         PlayerPrefs.Save();
     }
     
@@ -161,15 +164,42 @@ public class PlayerScript : MonoBehaviour {
       
     }
 
-    public void Alloy()
+    public void Alloy( int whichAlloy)
     {//For now, this just alloys copper and tin into bronze
 
-        if(bankedCurrency[1] >=9 && bankedCurrency[9] >= 1)
+        if (whichAlloy == 2)//If we are making Bronze
         {
-            bankedCurrency[1] -= 9;
-            bankedCurrency[9] -= 1;
-            bankedCurrency[2] += 10;
+            if (bankedCurrency[1] >= 9 && bankedCurrency[9] >= 1)
+            {
+                bankedCurrency[1] -= 9;//take away 9 copper
+                bankedCurrency[9] -= 1;//take away 1 tin
+                bankedCurrency[2] += 10;// add 10 bronze
+            }
+            Bank();
+
         }
-        Bank();
+        else if (whichAlloy == 4)//If we are making Steel
+        {
+            if (bankedCurrency[3] >= 9 && bankedCurrency[8] >= 1)
+            {
+                bankedCurrency[3] -= 9;//take away 9 Iron
+                bankedCurrency[8] -= 1;//take away 1 Nickel
+                bankedCurrency[4] += 10;// add 10 steel
+            }
+            Bank();
+
+        }
+        else if (whichAlloy == 5)//If we are making Gilded Steel
+        {
+            if (bankedCurrency[4] >= 1 && bankedCurrency[7] >= 1)
+            {
+                bankedCurrency[3] -= 1;//take away 1 steel
+                bankedCurrency[7] -= 1;//take away 1 gold
+                bankedCurrency[5] += 2;// add 2 Gilded Steel
+            }
+            Bank();
+
+        }
+
     }
 }

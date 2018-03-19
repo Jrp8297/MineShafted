@@ -84,6 +84,38 @@ public class UpgradeObject : MonoBehaviour {
                     Debug.Log("INSUFFICENT FUNDS");
                 }
                 break;
+            case 5://SPEAR             
+                if (PlayerPrefs.GetInt("BankedCurrency" + (PlayerPrefs.GetInt("SpearTier") + 1)) >= 10)
+                {
+                    int store = PlayerPrefs.GetInt("BankedCurrency" + (PlayerPrefs.GetInt("SpearTier") + 1));
+                    store -= 10;
+                    PlayerPrefs.SetInt("BankedCurrency" + (PlayerPrefs.GetInt("SpearTier") + 1), store);
+                    Debug.Log("Spear upgrade Called");
+                    PlayerPrefs.SetInt("SpearTier", (PlayerPrefs.GetInt("SpearTier") + 1));
+                    PlayerPrefs.Save();
+                    UpdateIcon();
+                }
+                else
+                {
+                    Debug.Log("INSUFFICENT FUNDS");
+                }
+                break;
+            case 6://HAMMER            
+                if (PlayerPrefs.GetInt("BankedCurrency" + (PlayerPrefs.GetInt("HammerTier") + 1)) >= 10)
+                {
+                    int store = PlayerPrefs.GetInt("BankedCurrency" + (PlayerPrefs.GetInt("HammerTier") + 1));
+                    store -= 10;
+                    PlayerPrefs.SetInt("BankedCurrency" + (PlayerPrefs.GetInt("HammerTier") + 1), store);
+                    Debug.Log("Hammer upgrade Called");
+                    PlayerPrefs.SetInt("HammerTier", (PlayerPrefs.GetInt("HammerTier") + 1));
+                    PlayerPrefs.Save();
+                    UpdateIcon();
+                }
+                else
+                {
+                    Debug.Log("INSUFFICENT FUNDS");
+                }
+                break;
             default:
                 break;
         }
@@ -109,6 +141,12 @@ public class UpgradeObject : MonoBehaviour {
                 break;
             case 4:
                 myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("BootTier")];
+                break;
+            case 5:
+                myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("SpearTier")];
+                break;
+            case 6:
+                myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("HammerTier")];
                 break;
             default:
                 break;
