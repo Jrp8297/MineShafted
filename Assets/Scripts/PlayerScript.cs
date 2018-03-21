@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour {
     public int health;
     public int [] tempCurrency;
     public int [] bankedCurrency;
+
     public int armorStyle;
     public int armorTier;
     public int weaponStyle;
@@ -14,12 +15,21 @@ public class PlayerScript : MonoBehaviour {
     public int spearTier;
     public int bootTier;
     public int hammerTier;
+	public Sprite [] armorImages;
+	public Sprite [] weaponImages;
+	public Sprite [] pickImages;
+	public Sprite [] spearImages;
+	public Sprite [] bootImages;
+	public Sprite [] hammerImages;
     public float tempDepth;
     public bool inFight;
     public bool TickDebug;
     public bool DoReset;
     public float depth;
     public GameObject currentEnemy;
+	public GameObject pickSprite;
+	public GameObject armorSprite;
+	public GameObject bootSprite;
     Vector3 position;
     Vector3 velocity;
 
@@ -38,6 +48,10 @@ public class PlayerScript : MonoBehaviour {
       
         //Debug.Log(tempDepth);
         PlayerPrefs.SetFloat("TempDepth", tempDepth);
+
+		pickSprite.GetComponent<SpriteRenderer> ().sprite = pickImages [pickTier];
+		armorSprite.GetComponent<SpriteRenderer> ().sprite = armorImages [armorTier];
+		bootSprite.GetComponent<SpriteRenderer> ().sprite = bootImages [bootTier];
 
         if (TickDebug)
         {
