@@ -67,25 +67,23 @@ public class PlayerScript : MonoBehaviour {
         if (!inFight)
         {
             tempDepth += Time.deltaTime;//move the player "down" the shaft as time passes
-            if (SystemInfo.supportsGyroscope)
+            
+             velocity = new Vector3(Input.acceleration.x,0,0);
+            
+            
+            if (Input.GetKey("left"))
             {
-                velocity = new Vector3(Input.gyro.attitude.x * Time.deltaTime, 0, Input.gyro.attitude.z * Time.deltaTime);
+                velocity.x = -.2f;
             }
-            else
+            if (Input.GetKey("right"))
             {
-                if (Input.GetKey("left"))
-                {
-                    velocity.x = -.2f;
-                }
-                if (Input.GetKey("right"))
-                {
-                    velocity.x = .2f;
-                }
-                if (Input.GetKey("right") && Input.GetKey("left"))
-                {
-                    velocity.x = 0;
-                }
+                velocity.x = .2f;
             }
+            if (Input.GetKey("right") && Input.GetKey("left"))
+            {
+                velocity.x = 0;
+            }
+            
             position += velocity;
             gameObject.transform.position = position;
 
