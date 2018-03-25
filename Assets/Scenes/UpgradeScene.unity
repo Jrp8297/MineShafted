@@ -4213,7 +4213,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1706414973}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 359, y: -4, z: 0}
+  m_LocalPosition: {x: 326.2, y: 9.826, z: 0}
   m_LocalScale: {x: 0.94999987, y: 1, z: 1}
   m_Children:
   - {fileID: 201563583}
@@ -4222,8 +4222,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -61, y: 50}
-  m_SizeDelta: {x: 100, y: 40}
+  m_AnchoredPosition: {x: -93.8, y: 63.826}
+  m_SizeDelta: {x: 169.1, y: 67.652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1706414975
 MonoBehaviour:
@@ -4804,7 +4804,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1851035871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -353, y: -4, z: 0}
+  m_LocalPosition: {x: -317.2, y: 10.329002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1952088633}
@@ -4813,8 +4813,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 67, y: 50}
-  m_SizeDelta: {x: 100, y: 40}
+  m_AnchoredPosition: {x: 102.8, y: 64.329}
+  m_SizeDelta: {x: 171.6, y: 68.658}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851035873
 MonoBehaviour:
@@ -5516,7 +5516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 240412662}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 0
   m_Elasticity: 0.1
@@ -5527,7 +5527,7 @@ MonoBehaviour:
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1849985636}
   m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 0
+  m_VerticalScrollbarVisibility: 1
   m_HorizontalScrollbarSpacing: -3
   m_VerticalScrollbarSpacing: -3
   m_OnValueChanged:
