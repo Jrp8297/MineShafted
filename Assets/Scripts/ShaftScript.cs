@@ -54,6 +54,7 @@ public class ShaftScript : MonoBehaviour {
                 spawnPosition = Camera.main.ViewportToWorldPoint(spawnPosition);
                 GameObject temp = Instantiate(OrePrefabList[Random.Range(0, (Level * 3))], spawnPosition, Quaternion.identity, gameObject.transform);
                 temp.GetComponent<ShaftObject>().player = player.GetComponent<PlayerScript>();
+                temp.GetComponent<SpriteRenderer>().sortingOrder = -1;
                 LastOre = true;
             }
 
