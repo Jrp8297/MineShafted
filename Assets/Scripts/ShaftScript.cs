@@ -15,7 +15,8 @@ public class ShaftScript : MonoBehaviour {
     Vector3 spawnPosition;
     float spawnTimer;
     float tempTime;
-
+    float lastPos;
+    int spawnController;
 
     // Use this for initialization
     void Start () {
@@ -24,6 +25,8 @@ public class ShaftScript : MonoBehaviour {
         spawnPosition = Camera.main.ViewportToWorldPoint( new Vector3(0, 0, 1));
         spawnTimer = 0.0f;
         tempTime = 0.0f;
+        lastPos = 0.0f;
+        spawnController = 0;
 	}
 	
 	// Update is called once per frame
@@ -31,16 +34,27 @@ public class ShaftScript : MonoBehaviour {
         tempTime += Time.deltaTime;
         if (gameObject.transform.childCount < 3 * Level && tempTime >= spawnTimer) 
         {//Check to instatiate new objects at the bottom of the screen;
-            if (LastOre)
+            if (spawnController <= 0 + Level)
             {//if we spawned an Ore last, Spawn a Monster
                 spawnPosition = Camera.main.WorldToViewportPoint(spawnPosition);
-                spawnPosition.x = Random.Range(0.1f, 0.9f);
+                spawnPosition.x = Random.Range(0.2f, 0.8f);
+                if (spawnPosition.x >= lastPos)
+                {
+                    spawnPosition.x += 0.1f;
+                }
+                else
+                {
+                    spawnPosition.x -= 0.1f;
+                }
+                lastPos = spawnPosition.x;
+                //spawnPosition.x = 0.5f;
                 spawnPosition = Camera.main.ViewportToWorldPoint(spawnPosition);
                 GameObject temp = Instantiate(MonsterPrefabList[Random.Range(0, (Level * 3))], spawnPosition, Quaternion.identity, gameObject.transform);
                 temp.GetComponent<ShaftObject>().player = player.GetComponent<PlayerScript>();
                 LastOre = false;
                 spawnTimer = Random.Range(0.25f, 1.0f);
                 tempTime = 0.0f;
+                spawnController = Random.Range(0, 4 + Level);
             }
             else if (nextWall <= PlayerPrefs.GetFloat("TempDepth"))
             {//If where the next wall should spawn is less than the players position
@@ -57,7 +71,16 @@ public class ShaftScript : MonoBehaviour {
             else
             {//If we spawned a monster Last, Spawn an Ore
                 spawnPosition = Camera.main.WorldToViewportPoint(spawnPosition);
-                spawnPosition.x = Random.Range(0.1f, 0.9f);
+                spawnPosition.x = Random.Range(0.2f, 0.8f);
+                if(spawnPosition.x >= lastPos)
+                {
+                    spawnPosition.x += 0.1f;
+                }
+                else
+                {
+                    spawnPosition.x -= 0.1f;
+                }
+                lastPos = spawnPosition.x;
                 spawnPosition = Camera.main.ViewportToWorldPoint(spawnPosition);
                 GameObject temp = Instantiate(OrePrefabList[Random.Range(0, (Level * 3))], spawnPosition, Quaternion.identity, gameObject.transform);
                 temp.GetComponent<ShaftObject>().player = player.GetComponent<PlayerScript>();
@@ -65,6 +88,7 @@ public class ShaftScript : MonoBehaviour {
                 LastOre = true;
                 spawnTimer = Random.Range(0.25f, 1.0f);
                 tempTime = 0.0f;
+                spawnController = Random.Range(0, 4 + Level);
             }
 
         }
