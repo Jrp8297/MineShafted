@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class FightScript : MonoBehaviour {
     public GameObject PlayerObj;    
-    public Canvas fightScene;   
+    public Canvas fightScene;
+    public Canvas resourcePanel;
     PlayerScript Player;
     ShaftObject Enemy;
     bool hasRead= false;
@@ -22,7 +23,7 @@ public class FightScript : MonoBehaviour {
         enemyAttack = new float[3];
         enemyDefense = new float[6];
         playerAttack = new float[3];
-        playerDefense = new float[6];        
+        playerDefense = new float[6];
         
     }
 
@@ -53,7 +54,9 @@ public class FightScript : MonoBehaviour {
     void Update () {
         if (Player.inFight)
         {
+
             fightScene.enabled = true;
+            resourcePanel.enabled = false;
             if (Player.health <= 0)
             {
                 Debug.Log("You died");
@@ -113,6 +116,7 @@ public class FightScript : MonoBehaviour {
     {
         Player.inFight = false;
         fightScene.enabled = false;
+        resourcePanel.enabled = true;
         SceneManager.LoadScene("UpgradeScene");
     }
     public void Victory()

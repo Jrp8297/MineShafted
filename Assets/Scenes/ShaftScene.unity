@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 599590604}
   - component: {fileID: 599590603}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: ResourcePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1124,7 +1124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 36.1, y: 0.44}
+  m_AnchoredPosition: {x: 36.1, y: 0.43999863}
   m_SizeDelta: {x: 71.89, y: -22.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &871689217
@@ -2307,6 +2307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerObj: {fileID: 1182705271}
   fightScene: {fileID: 1740277362}
+  resourcePanel: {fileID: 0}
   playerTurn: 0
 --- !u!1 &1761438054
 GameObject:
