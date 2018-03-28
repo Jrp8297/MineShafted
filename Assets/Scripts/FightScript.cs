@@ -7,6 +7,8 @@ public class FightScript : MonoBehaviour {
     public GameObject PlayerObj;    
     public Canvas fightScene;
     public Canvas resourcePanel;
+    public GameObject playerShadow;
+    public GameObject enemyShadow;
     PlayerScript Player;
     ShaftObject Enemy;
     bool hasRead= false;
@@ -16,7 +18,8 @@ public class FightScript : MonoBehaviour {
     float[] playerAttack;
     float[] playerDefense;
     public bool playerTurn;
-
+    public Sprite playerSprite;
+    public Sprite EnemySprite;
 	// Use this for initialization
 	void Start () {
         Player = PlayerObj.GetComponent<PlayerScript>();
@@ -24,7 +27,8 @@ public class FightScript : MonoBehaviour {
         enemyDefense = new float[6];
         playerAttack = new float[3];
         playerDefense = new float[6];
-        
+        enemyShadow = this.gameObject.transform.GetChild(0).GetChild(5).gameObject;
+        playerShadow = this.gameObject.transform.GetChild(0).GetChild(6).gameObject;
     }
 
     public void ReadInEnemyData()
@@ -116,12 +120,13 @@ public class FightScript : MonoBehaviour {
     {
         Player.inFight = false;
         fightScene.enabled = false;
-        resourcePanel.enabled = true;
+        
         SceneManager.LoadScene("UpgradeScene");
     }
     public void Victory()
     {
         fightScene.enabled = false;
+        resourcePanel.enabled = true;
         Player.bankedCurrency[0] += 1;
         Player.Bank();
         Player.inFight = false;
