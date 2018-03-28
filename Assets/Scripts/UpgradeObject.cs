@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class UpgradeObject : MonoBehaviour {
     public Sprite [] objectsToDisplay;
     Image myImage;    
     
     public int storeSlot;
+    public Slider[] ObjectStats;
     
 
 	// Use this for initialization
@@ -131,22 +133,39 @@ public class UpgradeObject : MonoBehaviour {
         switch (storeSlot)
         {
             case 1:                
-                myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("WeaponTier")];               
+                myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("WeaponTier")];
+                ObjectStats[0].value = 4 * 2 * PlayerPrefs.GetInt("WeaponTier")+1;
+                ObjectStats[1].value = 3 * 2 * PlayerPrefs.GetInt("WeaponTier")+1;
+                ObjectStats[2].value = 1 * PlayerPrefs.GetInt("WeaponTier") * PlayerPrefs.GetInt("WeaponTier") + 1;
                 break;
             case 2:
                 myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("ArmourTier")];
+                ObjectStats[0].value = 1 * 3 * PlayerPrefs.GetInt("ArmourTeir");//DA slash
+                ObjectStats[1].value = 16.0f  * PlayerPrefs.GetInt("ArmourTeir")/1000;//Dr SLash
+                ObjectStats[2].value = 1 * 2 * PlayerPrefs.GetInt("ArmourTeir");//DA Pierce
+                ObjectStats[3].value = 8.0f * 3 * PlayerPrefs.GetInt("ArmourTeir")/1000;//DR Pierce
+                ObjectStats[4].value = 1 * (5- PlayerPrefs.GetInt("ArmourTeir"));//DA crush
+                ObjectStats[5].value = 4.0f * PlayerPrefs.GetInt("ArmourTeir")/1000;//DR Crush
                 break;
             case 3:
                 myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("PickTier")];
+                ObjectStats[0].value = PlayerPrefs.GetInt("PickTier");
                 break;
             case 4:
                 myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("BootTier")];
+                ObjectStats[0].value = PlayerPrefs.GetInt("BootTier");
                 break;
             case 5:
-                myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("SpearTier")];
+                myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("SpearTier")];         
+                ObjectStats[0].value = 2 * 2 * PlayerPrefs.GetInt("WeaponTier") + 1;
+                ObjectStats[1].value = 5 * 2 * PlayerPrefs.GetInt("WeaponTier") + 1;
+                ObjectStats[2].value = 1 * PlayerPrefs.GetInt("WeaponTier") * PlayerPrefs.GetInt("WeaponTier") + 1;
                 break;
             case 6:
                 myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("HammerTier")];
+                ObjectStats[0].value = 1 * 2 * PlayerPrefs.GetInt("WeaponTier") + 1;
+                ObjectStats[1].value = 1 * 2 * PlayerPrefs.GetInt("WeaponTier") + 1;
+                ObjectStats[2].value = 3 * PlayerPrefs.GetInt("WeaponTier") * PlayerPrefs.GetInt("WeaponTier") + 1;
                 break;
             default:
                 break;
