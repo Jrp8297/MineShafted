@@ -4910,7 +4910,7 @@ RectTransform:
   m_GameObject: {fileID: 1120022053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.017894462, y: 0.017894462, z: 0.017894462}
+  m_LocalScale: {x: 0.01234568, y: 0.01234568, z: 0.01234568}
   m_Children:
   - {fileID: 1655563219}
   - {fileID: 2125078215}
@@ -5843,7 +5843,7 @@ RectTransform:
   m_LocalScale: {x: 1.0375152, y: 1.0250579, z: 1.0001433}
   m_Children: []
   m_Father: {fileID: 2125078215}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6912,7 +6912,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1655563218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.700012, y: 234.41608, z: 0}
+  m_LocalPosition: {x: 5.700012, y: 360, z: 0}
   m_LocalScale: {x: 0.8526, y: 0.8526, z: 0.8526}
   m_Children:
   - {fileID: 985351144}
@@ -7324,7 +7324,7 @@ RectTransform:
   m_Children:
   - {fileID: 201563583}
   m_Father: {fileID: 2125078215}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -8532,7 +8532,7 @@ RectTransform:
   m_Children:
   - {fileID: 1952088633}
   m_Father: {fileID: 2125078215}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9943,13 +9943,13 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2125078214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00012207031, y: -194.89432, z: 0}
+  m_LocalPosition: {x: -0.00012207031, y: -320.47824, z: 0}
   m_LocalScale: {x: 2.2773912, y: 2.277391, z: 2.277391}
   m_Children:
   - {fileID: 1044012433}
+  - {fileID: 1332773248}
   - {fileID: 1851035872}
   - {fileID: 1706414974}
-  - {fileID: 1332773248}
   m_Father: {fileID: 1120022057}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

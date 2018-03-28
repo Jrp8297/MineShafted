@@ -32,11 +32,12 @@ public class PlayerScript : MonoBehaviour {
 	public GameObject bootSprite;
     Vector3 position;
     Vector3 velocity;
-
+    SpriteRenderer playerRenderer;
 
 
     // Use this for initialization
     void Start () {
+        playerRenderer = gameObject.GetComponent<SpriteRenderer>();
         tempCurrency = new int[10];
         bankedCurrency = new int[10];
         GetData();
@@ -66,6 +67,10 @@ public class PlayerScript : MonoBehaviour {
         }
         if (!inFight)
         {
+            playerRenderer.enabled = true;
+            pickSprite.GetComponent<SpriteRenderer>().enabled = true;
+            armorSprite.GetComponent<SpriteRenderer>().enabled = true;
+            bootSprite.GetComponent<SpriteRenderer>().enabled = true;
             tempDepth += Time.deltaTime;//move the player "down" the shaft as time passes
             
              velocity = new Vector3(Input.acceleration.x,0,0);
@@ -91,6 +96,13 @@ public class PlayerScript : MonoBehaviour {
             pos.x = Mathf.Clamp(pos.x, 0.1f, 0.9f);
             pos.y = Mathf.Clamp(pos.y, 0.1f, 0.9f);
             transform.position = Camera.main.ViewportToWorldPoint(pos);
+        }
+        if(inFight)
+        {
+            playerRenderer.enabled = false;
+            pickSprite.GetComponent<SpriteRenderer>().enabled = false;
+            armorSprite.GetComponent<SpriteRenderer>().enabled = false;
+            bootSprite.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
     public void StoreData()    {
