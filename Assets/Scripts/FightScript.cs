@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class FightScript : MonoBehaviour {
     public GameObject PlayerObj;    
@@ -9,6 +11,8 @@ public class FightScript : MonoBehaviour {
     public Canvas resourcePanel;
     public GameObject playerShadow;
     public GameObject enemyShadow;
+    public Slider PlayerHealthDisplay;
+    public Slider EnemyHealthDisplay;
     PlayerScript Player;
     ShaftObject Enemy;
     bool hasRead= false;
@@ -37,6 +41,8 @@ public class FightScript : MonoBehaviour {
         enemyHealth = Enemy.health;
         enemyAttack = Enemy.attack;
         enemyDefense = Enemy.defense;
+        EnemyHealthDisplay.maxValue = Enemy.health;
+        EnemyHealthDisplay.value = Enemy.health;
 
     }
 
@@ -52,13 +58,15 @@ public class FightScript : MonoBehaviour {
         playerAttack[0] = ((5 - Player.weaponStyle) * 2 * Player.weaponTier) + 1; //Attack Slash
         playerAttack[1] = (Mathf.Abs(4 - Player.weaponStyle) * 2 * Player.weaponTier) + 1 ; //Attack pierce
         playerAttack[2] = ((Player.weaponStyle) * Player.weaponStyle * Player.weaponTier) + 1; //Attack crush
+        PlayerHealthDisplay.maxValue = 20;
+        PlayerHealthDisplay.value = Player.health;
     }
 
     // Update is called once per frame
     void Update () {
         if (Player.inFight)
         {
-
+           
             fightScene.enabled = true;
             resourcePanel.enabled = false;
             if (Player.health <= 0)
@@ -73,6 +81,8 @@ public class FightScript : MonoBehaviour {
                 hasRead = true;
             }
 
+            PlayerHealthDisplay.value = Player.health;
+            EnemyHealthDisplay.value = Enemy.health;
             if (playerTurn)
             {
                 //NOTHING

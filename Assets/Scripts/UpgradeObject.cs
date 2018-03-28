@@ -157,15 +157,15 @@ public class UpgradeObject : MonoBehaviour {
                 break;
             case 5:
                 myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("SpearTier")];         
-                ObjectStats[0].value = 2 * 2 * PlayerPrefs.GetInt("WeaponTier") + 1;
-                ObjectStats[1].value = 5 * 2 * PlayerPrefs.GetInt("WeaponTier") + 1;
-                ObjectStats[2].value = 1 * PlayerPrefs.GetInt("WeaponTier") * PlayerPrefs.GetInt("WeaponTier") + 1;
+                ObjectStats[0].value = 2 * 2 * PlayerPrefs.GetInt("SpearTier") + 1;
+                ObjectStats[1].value = 5 * 2 * PlayerPrefs.GetInt("SpearTier") + 1;
+                ObjectStats[2].value = 1 * PlayerPrefs.GetInt("SpearTier") * PlayerPrefs.GetInt("WeaponTier") + 1;
                 break;
             case 6:
                 myImage.sprite = objectsToDisplay[PlayerPrefs.GetInt("HammerTier")];
-                ObjectStats[0].value = 1 * 2 * PlayerPrefs.GetInt("WeaponTier") + 1;
-                ObjectStats[1].value = 1 * 2 * PlayerPrefs.GetInt("WeaponTier") + 1;
-                ObjectStats[2].value = 3 * PlayerPrefs.GetInt("WeaponTier") * PlayerPrefs.GetInt("WeaponTier") + 1;
+                ObjectStats[0].value = 1 * 2 * PlayerPrefs.GetInt("HammerTier") + 1;
+                ObjectStats[1].value = 1 * 2 * PlayerPrefs.GetInt("HammerTier") + 1;
+                ObjectStats[2].value = 3 * PlayerPrefs.GetInt("HammerTier") * PlayerPrefs.GetInt("WeaponTier") + 1;
                 break;
             default:
                 break;
